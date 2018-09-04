@@ -1,0 +1,22 @@
+{
+  "name": "sass_boiler_plate",
+  "version": "1.0.0",
+  "description": "Compiling SASS with Gulp and Browser-Sync",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "Omid Habedy",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglyfly": "^1.4.2"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-uglifycss": "^1.0.9",
+    "node-sass": "^4.9.0"
+  }
+}

@@ -1,0 +1,37 @@
+$danger: #eb4a4b;
+@mixin center(){
+	text-align: center;
+	margin: 0 auto;
+}
+
+@mixin padding(){
+	padding: 8px 14px;
+}
+
+.red{
+	border: 1px solid red;
+}
+.container{
+	padding: 40px 20px 50px 20px;
+
+	.row{
+		padding-top: 40px;
+	}
+
+	th,
+	h2,
+	img,
+	td:first-child{
+		@include center;
+	}
+	
+	code,
+	.alert{
+		font-size: 13px;
+	}
+
+	.alert{
+		@include padding;
+	}
+}
+

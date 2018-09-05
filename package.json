@@ -8,6 +8,7 @@
   },
   "author": "Omid Habedy",
   "license": "MIT",
+  "homepage": "https://github.com/HabedyOmid/Gulp-SASS-Browser-Sync",
   "devDependencies": {
     "browser-sync": "^2.24.4",
     "gulp": "^3.9.1",
@@ -15,8 +16,11 @@
     "gulp-uglyfly": "^1.4.2"
   },
   "dependencies": {
+    "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
     "gulp-uglifycss": "^1.0.9",
+    "imagemin-pngquant": "^6.0.0",
     "node-sass": "^4.9.0"
   }
 }

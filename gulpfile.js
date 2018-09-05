@@ -1,13 +1,12 @@
-var gulp         = require('gulp');
-var sass         = require('gulp-sass');
-var uglifyCSS    = require('gulp-uglifycss');
-var browserSync  = require('browser-sync').create();
-var uglifyJS     = require('gulp-uglyfly');
-var concat 	     = require('gulp-concat');
-var autoPreFixer = require('gulp-autoprefixer');
-var imageMin     = require('gulp-imagemin');
-var pngQuant     = require('imagemin-pngquant');
-
+var gulp            = require('gulp');
+var sass            = require('gulp-sass');
+var uglifyCSS       = require('gulp-uglifycss');
+var browserSync     = require('browser-sync').create();
+var uglifyJS        = require('gulp-uglyfly');
+var concat          = require('gulp-concat');
+var autoPreFixer    = require('gulp-autoprefixer');
+var imageMin        = require('gulp-imagemin');
+var pngQuant        = require('imagemin-pngquant');
 
 // Compile SASS into CSS
 gulp.task('sass', function() {
@@ -17,7 +16,6 @@ gulp.task('sass', function() {
         .pipe(autoPreFixer('last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         .pipe(gulp.dest('./assets/css/'))
 });
-
 
 // Uglify CSS / Minify CSS 
 gulp.task('css', function(){
@@ -31,7 +29,6 @@ gulp.task('css', function(){
 
 });
 
-
 // Compile and minify multiple JS into a single file
 gulp.task('js', function() {
   gulp.src("./assets/js/*.js")
@@ -40,8 +37,6 @@ gulp.task('js', function() {
     .pipe(gulp.dest('./public_html/'))
     .pipe(browserSync.stream());
 });
-
-
 
 // Minify PNG Files
 gulp.task('png', function(){
@@ -53,8 +48,6 @@ gulp.task('png', function(){
         }))
         .pipe(gulp.dest('./public_html/imgs'));
 });
-
-
 
 // Static Server + watching SASS, CSS, IMG, JS and HTML files
 gulp.task('watch', ['sass', 'css', 'js', 'png'], function() {
@@ -69,7 +62,6 @@ gulp.task('watch', ['sass', 'css', 'js', 'png'], function() {
 	gulp.watch('./assets/images/*', ['png']);
 	gulp.watch('./public_html/*.html').on('change', browserSync.reload);
 });
-
 
 // Compile SASS, Minify CSS, JS, PNG and Reload page to inject changes
 gulp.task('default', ['watch']);

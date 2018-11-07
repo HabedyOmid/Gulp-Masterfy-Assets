@@ -1,1 +1,0 @@
-alert("Awesome! Javascript Just Works Fine. Disable me /assets/js/app.js");

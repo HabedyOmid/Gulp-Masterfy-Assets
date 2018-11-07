@@ -1,70 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Gulp-SASS+Browser-Sync</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="app-min.css">
+  <meta charset="UTF-8">
+  <title>Gulp-SASS+Browser-Sync</title>
+  <link rel="stylesheet" type="text/css" href="dist/css/app.min.css">
 </head>
 <body>
-	
-	<div class="container">
-		<h2><strong>Gulp SASS + Browser-Sync Automation</strong></h2>
-		<div class="row justify-content-md-center">
-			<div class="col col-lg-4">
-				<img src="../assets/images/gulp-browser-sync.png" class="img-fluid">
-				<div class="alert alert-danger">
-					Original: 
-					<strong>30KB</strong>
-				</div>
-			</div>
-			<div class="col col-lg-4">
-				<img src="imgs/gulp-browser-sync.png" class="img-fluid">
-				<div class="alert alert-success">
-					Compressed: 
-					<strong>10KB</strong>
-				</div>
-			</div>
-		</div>
+  
+  <div class="container">
+    <h2><strong>Gulp SASS + Browser-Sync Automation</strong></h2>
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-4">
+        <img src="dist/img/gulp-browser-sync-Original.png" class="img-fluid">
+        <div class="alert alert-danger">
+          Original: 
+          <strong>30KB</strong>
+        </div>
+      </div>
+      <div class="col col-lg-4">
+        <img src="dist/img/gulp-browser-sync.png" class="img-fluid">
+        <div class="alert alert-success">
+          Compressed: 
+          <strong>10KB</strong>
+        </div>
+      </div>
+    </div>
 
-		<h3><strong>Installation:</strong></h3>
-		<table class="table table-bordered">
-			<tr>
-				<th>Command</th>
-				<th>Description</th>
-			</tr>
-			<tr>
-				<td><code>npm install</code></td>
-				<td>Installing all node modules for this project to work</td>
-			</tr>
-			<tr>
-				<td><code>gulp sass</code></td>
-				<td>Compile multiple SASS files and combine them into a single CSS</td>
-			</tr>
-			<tr>
-				<td><code>gulp css</code></td>
-				<td>Minify all CSS files and refreshing webpage to see new styles </td>
-			</tr>
-			<tr>
-				<td><code>gulp js</code></td>
-				<td>Compile, Minify and combine many JS files into a single file</td>
-			</tr>
-			<tr>
-				<td><code>gulp png</code></td>
-				<td>Compress all PNG images </td>
-			</tr>
-			<tr>
-				<td><code>gulp watch</code></td>
-				<td>Constantly watching for any file changes, compiling, and refreshing the page </td>
-			</tr>
-			<tr>
-				<td><code>npm start</code></td>
-				<td>Alternative way for <code>npm watch</code> command (essentially same thing)</td>
-			</tr>
-		</table>
-	</div>
+    <h3><strong>Installation:</strong></h3>
+    <table class="table table-bordered">
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>npm install</code></td>
+        <td>Installing all node modules for this project to work</td>
+      </tr>
+      <tr>
+        <td><code>gulp sass</code></td>
+        <td>Compile multiple SASS files and combine them into a single CSS</td>
+      </tr>
+      <tr>
+        <td><code>gulp css</code></td>
+        <td>Minify all CSS files and refreshing webpage to see new styles </td>
+      </tr>
+      <tr>
+        <td><code>gulp js</code></td>
+        <td>Compile, Minify and combine many JS files into a single file</td>
+      </tr>
+      <tr>
+        <td><code>gulp img</code></td>
+        <td>Compress all PNG images </td>
+      </tr>
+      <tr>
+        <td><code>gulp libs</code></td>
+        <td>Move all vendor library files into "dist" production folder </td>
+      </tr>
+      <tr>
+        <td><code>gulp clean</code></td>
+        <td>Clean your "dist" production directory</td>
+      </tr>
+      <tr>
+        <td><code>gulp build</code></td>
+        <td>Build "dist" production directory consists of all development assets</td>
+      </tr>
+      <tr>
+        <td><code>gulp watch / gulp</code></td>
+        <td>Constantly watching for any file changes, compiling, and refreshing the page </td>
+      </tr>
+      <tr>
+        <td><code>npm start</code></td>
+        <td>Alternative way for <code>npm watch</code> command (essentially same thing)</td>
+      </tr>
+    </table>
+  </div>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script type="text/javascript" src="app-min.js"></script>
+  <script type="text/javascript" src="dist/js/jquery-min.js"></script>
+  <script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
 </body>
 </html>

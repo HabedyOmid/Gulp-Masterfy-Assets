@@ -1,26 +1,29 @@
 {
-  "name": "sass_boiler_plate",
-  "version": "1.0.0",
-  "description": "Compiling SASS with Gulp and Browser-Sync",
-  "main": "index.js",
+  "name": "argon-design-system",
+  "version": "1.0.1",
+  "description": "A beautiful Design System for Bootstrap 4. It's Free and Open Source.",
+  "main": "gulpfile.js",
+  "author": "Creative Tim",
   "scripts": {
     "start": "gulp"
   },
-  "author": "Omid Habedy",
-  "license": "MIT",
-  "homepage": "https://github.com/HabedyOmid/Gulp-SASS-Browser-Sync",
   "devDependencies": {
     "browser-sync": "^2.24.4",
     "gulp": "^3.9.1",
-    "gulp-sass": "^4.0.1",
-    "gulp-uglyfly": "^1.4.2"
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-sass": "^3.2.1"
   },
   "dependencies": {
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-uglifycss": "^1.0.9",
+    "del": "^3.0.0",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-wait": "0.0.2",
     "imagemin-pngquant": "^6.0.0",
-    "node-sass": "^4.9.0"
+    "postcss-flexbugs-fixes": "^3.3.1",
+    "run-sequence": "^2.2.1"
   }
 }

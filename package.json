@@ -1,9 +1,9 @@
 {
-  "name": "argon-design-system",
-  "version": "1.0.1",
-  "description": "A beautiful Design System for Bootstrap 4. It's Free and Open Source.",
+  "name": "gulp-sass-and-browser-sync",
+  "version": "1.0.0",
+  "description": "An awesome bootstrap 4.1 responsive template.",
   "main": "gulpfile.js",
-  "author": "Creative Tim",
+  "author": "DevCRUD",
   "scripts": {
     "start": "gulp"
   },

@@ -1,29 +1,13 @@
 {
-  "name": "gulp-sass-and-browser-sync",
+  "name": "Gulp-Masterfy-Assets",
   "version": "1.0.0",
-  "description": "An awesome bootstrap 4.1 responsive template.",
+  "description": "A simple and powerful app to masterfy your web assets.",
   "main": "gulpfile.js",
-  "author": "DevCRUD",
+  "author": "Omid Habedy",
+  "url": "https://github.com/HabedyOmid/Gulp-Masterfy-Assets",
   "scripts": {
     "start": "gulp"
   },
   "devDependencies": {
-    "browser-sync": "^2.24.4",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean-css": "^3.9.4",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-sass": "^3.2.1"
   },
-  "dependencies": {
-    "del": "^3.0.0",
-    "gulp-csscomb": "^3.0.8",
-    "gulp-postcss": "^7.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^3.0.0",
-    "gulp-wait": "0.0.2",
-    "imagemin-pngquant": "^6.0.0",
-    "postcss-flexbugs-fixes": "^3.3.1",
-    "run-sequence": "^2.2.1"
-  }
 }

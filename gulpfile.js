@@ -6,7 +6,6 @@ const concat       = require('gulp-concat');
 const cleanCSS     = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin     = require('gulp-imagemin');
-const gulpSequence = require('gulp-sequence');
 const browserSync  = require('browser-sync').create();
 
 

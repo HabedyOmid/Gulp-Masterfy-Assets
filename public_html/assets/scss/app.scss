@@ -50,5 +50,17 @@
 @import "vendors/bootstrap4.3/print";
 
 // Customs
-@import "pages/home";
+@import "abstracts/colors";
+@import "abstracts/variables";
+@import "abstracts/mixins";
 
+@import "base/typography";
+@import "base/base";
+@import "base/animations";
+@import "base/utilities";
+
+@import "components/table";
+
+@import "layouts/section";
+
+@import "pages/home";

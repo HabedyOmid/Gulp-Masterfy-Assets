@@ -1,80 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Gulp-SASS+Browser-Sync</title>
-  <link rel="stylesheet" type="text/css" href="dist/css/app.css">
+    <meta charset="UTF-8">
+    <title>Gulp Masterfy Assets</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dist/css/app.css">
 </head>
 <body>
-  
-  <div class="container">
-    <h2><strong>Gulp SASS + Browser-Sync Automation</strong></h2>
-    <div class="row justify-content-md-center">
-      <div class="col col-lg-4">
-        <img src="dist/img/gulp-browser-sync-Original.png" class="img-fluid">
-        <div class="alert alert-danger">
-          Original: 
-          <strong>30KB</strong>
-        </div>
-      </div>
-      <div class="col col-lg-4">
-        <img src="dist/img/gulp-browser-sync.png" class="img-fluid">
-        <div class="alert alert-success">
-          Compressed: 
-          <strong>10KB</strong>
-        </div>
-      </div>
-    </div>
+    <main>
+        <section>
+            <div class="container">
 
-    <h3><strong>Installation:</strong></h3>
-    <table class="table table-bordered">
-      <tr>
-        <th>Command</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><code>npm install</code></td>
-        <td>Installing all node modules for this project to work</td>
-      </tr>
-      <tr>
-        <td><code>gulp sass</code></td>
-        <td>Compile multiple SASS files and combine them into a single CSS</td>
-      </tr>
-      <tr>
-        <td><code>gulp css</code></td>
-        <td>Minify all CSS files and refreshing webpage to see new styles </td>
-      </tr>
-      <tr>
-        <td><code>gulp js</code></td>
-        <td>Compile, Minify and combine many JS files into a single file</td>
-      </tr>
-      <tr>
-        <td><code>gulp img</code></td>
-        <td>Compress all PNG images </td>
-      </tr>
-      <tr>
-        <td><code>gulp libs</code></td>
-        <td>Move all vendor library files into "dist" production folder </td>
-      </tr>
-      <tr>
-        <td><code>gulp clean</code></td>
-        <td>Clean your "dist" production directory</td>
-      </tr>
-      <tr>
-        <td><code>gulp build</code></td>
-        <td>Build "dist" production directory consists of all development assets</td>
-      </tr>
-      <tr>
-        <td><code>gulp watch / gulp</code></td>
-        <td>Constantly watching for any file changes, compiling, and refreshing the page </td>
-      </tr>
-      <tr>
-        <td><code>npm start</code></td>
-        <td>Alternative way for <code>npm watch</code> command (essentially same thing)</td>
-      </tr>
-    </table>
-  </div>
-lorem
+                <h1 class="u-text-center">Gulp Masterfy Assets</h1>
+                <div class="row justify-content-md-center">
+                      <div class="col col-lg-4 u-margin-top-md u-margin-bottom-lg">
+                          <img src="assets/img/gulp.png" class="img-fluid">
+                          <div class="alert alert-danger">
+                              Original: 
+                              <strong>19KB</strong>
+                          </div>
+                      </div>
+
+                      <div class="col col-lg-4 u-margin-top-md u-margin-bottom-lg">
+                          <img src="dist/img/gulp.png" class="img-fluid">
+                          <div class="alert alert-success">
+                              Compressed: 
+                              <strong>13KB</strong>
+                          </div>
+                      </div>
+                </div>
+
+                <h2>Installation:</h2>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Command</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>npm install</code></td>
+                        <td>Installing all application dependencies </td>
+                    </tr>
+                    <tr>
+                        <td><code>gulp sass</code></td>
+                        <td>Compile all SASS files into CSS</td>
+                    </tr>
+                    <tr>
+                        <td><code>gulp css</code></td>
+                        <td>Minify + Combine + Adding Prefixes to CSS supporting (10 latest browsers)</td>
+                    </tr>
+                    <tr>
+                        <td><code>gulp js</code></td>
+                        <td>Combine and minify JS files</td>
+                    </tr>
+                    <tr>
+                        <td><code>gulp img</code></td>
+                        <td>Compress all PNG, JPG, GIF and SVG graphic files </td>
+                    </tr>
+                    <tr>
+                        <td><code>gulp build</code></td>
+                        <td>Build all the assets for production</td>
+                    </tr>
+                    <tr>
+                        <td><code>gulp watch</code></td>
+                        <td>Constantly watching and reloading browser on changes to (SASS, CSS, JS and HTML) files.</td>
+                    </tr>
+                    <tr>
+                        <td><code>npm start</code></td>
+                        <td>Alternative command for <code>npm watch</code> command.</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
   <script type="text/javascript" src="dist/js/app.js"></script>
 </body>
 </html>

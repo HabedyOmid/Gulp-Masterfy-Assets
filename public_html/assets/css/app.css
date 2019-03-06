@@ -7024,3 +7024,67 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+
+h1, h2, h3 {
+  font-weight: bold;
+  margin-bottom: 2rem; }
+
+p {
+  line-height: 2.5rem; }
+  p:not(:last-child) {
+    margin-bottom: 3rem; }
+
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #444444;
+  background: #ffffff;
+  font-size: 1.6rem;
+  box-sizing: border-box; }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+.u-text-center {
+  text-align: center; }
+
+.u-margin-top-lg {
+  margin-top: 4rem; }
+
+.u-margin-top-md {
+  margin-top: 3rem; }
+
+.u-margin-top-sm {
+  margin-top: 2rem; }
+
+.u-margin-bottom-lg {
+  margin-bottom: 4rem; }
+
+.u-margin-bottom-md {
+  margin-bottom: 3rem; }
+
+.u-margin-bottom-sm {
+  margin-bottom: 2rem; }
+
+.table {
+  color: inherit; }
+  .table td,
+  .table th {
+    padding: 1.5rem 2rem; }
+
+section {
+  padding: 5rem; }

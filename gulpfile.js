@@ -9,6 +9,7 @@ const imagemin     = require('gulp-imagemin');
 const gulpSequence = require('gulp-sequence');
 const browserSync  = require('browser-sync').create();
 
+
 // Paths
 var paths = {
     root: {
@@ -29,6 +30,7 @@ var paths = {
     }
 }
 
+
 // Compile SCSS
 gulp.task('sass', function() {
     return gulp.src(paths.src.scss)
@@ -37,6 +39,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(paths.src.css))
     .pipe(browserSync.stream());
 });
+
 
 // Minify + AutoPreFixer + Combine CSS
 gulp.task('css', function() {
@@ -50,6 +53,7 @@ gulp.task('css', function() {
     .pipe(gulp.dest(paths.dist.css))
 });
 
+
 // Minify + Combine JS
 gulp.task('js', function() {
     return gulp.src(paths.src.js)
@@ -58,6 +62,7 @@ gulp.task('js', function() {
     .pipe(gulp.dest(paths.dist.js))
     .pipe(browserSync.stream());
 });
+
 
 // Compress (JPEG, PNG, GIF, SVG)
 gulp.task('img', function(){
@@ -76,8 +81,10 @@ gulp.task('img', function(){
     .pipe(gulp.dest(paths.dist.img));
 });
 
+
 // Prepare all assets for production
 gulp.task('build', gulp.series('sass', 'css', 'js', 'img'));
+
 
 // Watch (SASS, CSS, JS, and HTML) reload browser on change
 gulp.task('watch', function() {

@@ -1,7 +1,7 @@
 # Gulp Masterfy Assets
----
-![alt text](preview.png)
 
+![alt text](preview.png)
+---
 
 ## Installation
 | Command | Descriptions |

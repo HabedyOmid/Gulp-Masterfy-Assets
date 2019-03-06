@@ -4,7 +4,7 @@ h1, h2, h3{
 }
 
 p{
-	line-height: 2.5rem;
+	line-height: $paragraph-line-height;
 	&:not(:last-child){
 		margin-bottom: 3rem;
 	}

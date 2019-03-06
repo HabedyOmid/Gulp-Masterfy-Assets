@@ -1,6 +1,6 @@
 {
   "name": "Gulp-Masterfy-Assets",
-  "version": "1.0.0",
+  "version": "1.1",
   "description": "A simple and powerful app to masterfy your web assets.",
   "main": "gulpfile.js",
   "author": "Omid Habedy",
@@ -16,6 +16,8 @@
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^5.0.3",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "imagemin-jpeg-recompress": "^6.0.0",
+    "imagemin-pngquant": "^7.0.0"
   }
 }

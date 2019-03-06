@@ -1,18 +1,21 @@
-// Gulp file
-const gulp         = require('gulp');
-const sass         = require('gulp-sass');
-const uglify       = require('gulp-uglify');
-const concat       = require('gulp-concat');
-const cleanCSS     = require('gulp-clean-css');
-const autoprefixer = require('gulp-autoprefixer');
-const imagemin     = require('gulp-imagemin');
-const browserSync  = require('browser-sync').create();
+// node.js Packages / Dependencies
+const gulp          = require('gulp');
+const sass          = require('gulp-sass');
+const uglify        = require('gulp-uglify');
+const concat        = require('gulp-concat');
+const cleanCSS      = require('gulp-clean-css');
+const imageMin      = require('gulp-imageMin');
+const pngQuint      = require('imageMin-pngquant'); 
+const browserSync   = require('browser-sync').create();
+const autoprefixer  = require('gulp-autoprefixer');
+const jpgRecompress = require('imageMin-jpeg-recompress'); 
 
 
 // Paths
 var paths = {
     root: {
         root: './',
+        www: './public_html',
         node: 'node_modules'
     },
     src: {
@@ -66,16 +69,13 @@ gulp.task('js', function() {
 // Compress (JPEG, PNG, GIF, SVG)
 gulp.task('img', function(){
     return gulp.src(paths.src.img)
-    .pipe(imagemin([
-        imagemin.gifsicle({interlaced: true}),
-        imagemin.jpegtran({progressive: true}),
-        imagemin.optipng({optimizationLevel: 5}),
-        imagemin.svgo({
-            plugins: [
-                {removeViewBox: true},
-                {cleanupIDs: false}
-            ]
-        })
+    .pipe(imageMin([
+        imageMin.gifsicle(),
+        imageMin.jpegtran(),
+        imageMin.optipng(),
+        imageMin.svgo(),
+        pngQuint(),
+        jpgRecompress()
     ]))
     .pipe(gulp.dest(paths.dist.img));
 });
@@ -88,8 +88,10 @@ gulp.task('build', gulp.series('sass', 'css', 'js', 'img'));
 // Watch (SASS, CSS, JS, and HTML) reload browser on change
 gulp.task('watch', function() {
     browserSync.init({
-        server: "./public_html/"
-    });
+        server: {
+            baseDir: paths.root.www
+        } 
+    })
 
     gulp.watch(paths.src.scss, gulp.series('sass'));
     gulp.watch(paths.src.css, gulp.series('css'));

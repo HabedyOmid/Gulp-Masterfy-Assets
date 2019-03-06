@@ -4,7 +4,6 @@
 ---
 
 ### Installation
-<center>
 | Command | Descriptions |
 | ------------- | ------------- |
 | `npm install`  | Installing all application dependencies |
@@ -15,4 +14,3 @@
 | `gulp build`  | Build all the assets for production  |
 | `gulp watch` | Constantly watching and reloading browser on changes to (SASS, CSS, JS and HTML) files  |
 | `npm start` | Alternative command for <code>npm watch</code> command  |
-</center>

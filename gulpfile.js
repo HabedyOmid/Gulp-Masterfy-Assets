@@ -1,38 +1,31 @@
- // Gulp file
-var gulp         = require('gulp');
-var wait         = require('gulp-wait');
-var sass         = require('gulp-sass');
-var postcss      = require('gulp-postcss');
-var csscomb      = require('gulp-csscomb');
-var cleanCSS     = require('gulp-clean-css');
-var rename       = require('gulp-rename');
-var del          = require('del');
-var uglify       = require('gulp-uglify');
-var runSequence  = require('run-sequence');
-var imageMin     = require('gulp-imagemin');
-var pngQuant     = require('imagemin-pngquant');
-var autoprefixer = require('gulp-autoprefixer');
-var browserSync  = require('browser-sync').create();
+// Gulp file
+const gulp         = require('gulp');
+const sass         = require('gulp-sass');
+const uglify       = require('gulp-uglify');
+const concat       = require('gulp-concat');
+const cleanCSS     = require('gulp-clean-css');
+const autoprefixer = require('gulp-autoprefixer');
+const imagemin     = require('gulp-imagemin');
+const gulpSequence = require('gulp-sequence');
+const browserSync  = require('browser-sync').create();
 
-// Define paths
+// Paths
 var paths = {
-    dist: {
-        root: 'public_html/dist',
-        img:  'public_html/dist/img',
-        libs: 'public_html/dist/vendor'
-    },
     root: {
         root: './',
         node: 'node_modules'
     },
     src: {
-        root: './',
-        css:  'assets/css',
-        img:  'assets/img/**/*.+(png|jpg|gif|svg)',
-        html: '**/*.html',
-        js:   'assets/js/**/*.js',
-        scss: 'assets/scss/**/*.scss',
-        libs: 'assets/vendor/**/*.+(css|js)',
+        html: 'public_html/**/*.html',
+        css:  'public_html/assets/css',
+        js:   'public_html/assets/js/**/*.js',
+        img:  'public_html/assets/img/**/*.+(png|jpg|gif|svg)',
+        scss: 'public_html/assets/scss/**/*.scss',
+    },
+    dist: {
+        css:  'public_html/dist/css',
+        js:   'public_html/dist/js',
+        img:  'public_html/dist/img'
     }
 }
 
@@ -40,92 +33,60 @@ var paths = {
 gulp.task('sass', function() {
     return gulp.src(paths.src.scss)
 
-    .pipe(wait(500))
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([require('postcss-flexbugs-fixes')]))
-    .pipe(autoprefixer({
-        browsers: ['> 1%']
-    }))
-
-    .pipe(csscomb())
     .pipe(gulp.dest(paths.src.css))
-    .pipe(browserSync.reload({
-        stream: true
-    }))
+    .pipe(browserSync.stream());
 });
 
-// Minify CSS
+// Minify + AutoPreFixer + Combine CSS
 gulp.task('css', function() {
-    return gulp.src([
-        paths.src.css + '/app.css'
-    ])
-
-    .pipe(cleanCSS())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(paths.dist.root + '/css'))
+    return gulp.src(paths.src.css + '/*.css')
+    .pipe(autoprefixer({
+        browsers: ['last 10 versions'],
+        cascade: false
+    }))
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(concat('app.css'))
+    .pipe(gulp.dest(paths.dist.css))
 });
 
-// Minify JS
+// Minify + Combine JS
 gulp.task('js', function() {
-    return gulp.src([
-        paths.src.root + '/assets/js/*.js'
-    ])
+    return gulp.src(paths.src.js)
     .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(paths.dist.root + '/js'))
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest(paths.dist.js))
+    .pipe(browserSync.stream());
 });
 
-// Compress Images(PNG) + Move to DIST
+// Compress (JPEG, PNG, GIF, SVG)
 gulp.task('img', function(){
     return gulp.src(paths.src.img)
-        .pipe(imageMin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngQuant()]
-        }))
-        .pipe(gulp.dest(paths.dist.img));
+    .pipe(imagemin([
+        imagemin.gifsicle({interlaced: true}),
+        imagemin.jpegtran({progressive: true}),
+        imagemin.optipng({optimizationLevel: 5}),
+        imagemin.svgo({
+            plugins: [
+                {removeViewBox: true},
+                {cleanupIDs: false}
+            ]
+        })
+    ]))
+    .pipe(gulp.dest(paths.dist.img));
 });
 
-// Move vendor libraries to Dist
-gulp.task('libs', function(){
-    return gulp.src(paths.src.libs)
-        .pipe(gulp.dest(paths.dist.libs));
-});
+// Prepare all assets for production
+gulp.task('build', gulp.series('sass', 'css', 'js', 'img'));
 
-// Clean
-gulp.task('clean', function() {
-    return del.sync(paths.dist.root);
-});
-
-// Live reload
-gulp.task('browserSync', function() {
-    browserSync.init({
-        server: {
-             baseDir: "./public_html/"
-        },
-    })
-});
-
-// Watch for SASS/CSS/JS/HTML Changes
-gulp.task('watch', ['sass'], function() {
-
+// Watch (SASS, CSS, JS, and HTML) reload browser on change
+gulp.task('watch', function() {
     browserSync.init({
         server: "./public_html/"
     });
 
-    gulp.watch(paths.src.scss, ['sass']);
-    gulp.watch(paths.src.css + '/*.css', ['css']);
-    gulp.watch(paths.src.css + '/*.css', browserSync.reload);
-    gulp.watch(paths.src.root + '/assets/js/*.js', ['js']);
-    gulp.watch(paths.src.js, browserSync.reload);
-    gulp.watch(paths.src.html, browserSync.reload);
+    gulp.watch(paths.src.scss, gulp.series('sass'));
+    gulp.watch(paths.src.css, gulp.series('css'));
+    gulp.watch(paths.src.js, gulp.series('js'));
+    gulp.watch(paths.src.html).on('change', browserSync.reload);
 });
-
-// Build -> Clean Dist + Compile SASS + Copy CSS + Copy JS + Compress Imgs + Copy vendors
-gulp.task('build', function(callback) {
-    runSequence('clean', 'sass', 'css', 'js', 'img', 'libs',
-        callback);
-});
-
-// Default = Watch
-gulp.task('default', ['watch']);

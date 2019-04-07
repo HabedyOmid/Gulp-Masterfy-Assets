@@ -4,11 +4,11 @@ const sass          = require('gulp-sass');
 const uglify        = require('gulp-uglify');
 const concat        = require('gulp-concat');
 const cleanCSS      = require('gulp-clean-css');
-const imageMin      = require('gulp-imageMin');
-const pngQuint      = require('imageMin-pngquant'); 
+const imageMin      = require('gulp-imagemin');
+const pngQuint      = require('imagemin-pngquant'); 
 const browserSync   = require('browser-sync').create();
 const autoprefixer  = require('gulp-autoprefixer');
-const jpgRecompress = require('imageMin-jpeg-recompress'); 
+const jpgRecompress = require('imagemin-jpeg-recompress'); 
 
 
 // Paths

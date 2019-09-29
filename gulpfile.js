@@ -2,6 +2,7 @@
 const gulp          = require('gulp');
 const sass          = require('gulp-sass');
 const uglify        = require('gulp-uglify');
+const rename        = require('gulp-rename');
 const concat        = require('gulp-concat');
 const cleanCSS      = require('gulp-clean-css');
 const imageMin      = require('gulp-imagemin');
@@ -9,26 +10,29 @@ const pngQuint      = require('imagemin-pngquant');
 const browserSync   = require('browser-sync').create();
 const autoprefixer  = require('gulp-autoprefixer');
 const jpgRecompress = require('imagemin-jpeg-recompress'); 
+const clean         = require('gulp-clean');
 
 
 // Paths
 var paths = {
-    root: {
-        root: './',
-        www: './public_html',
-        node: 'node_modules'
+    root: { 
+        www:        './public_html'
     },
     src: {
-        html: 'public_html/**/*.html',
-        css:  'public_html/assets/css',
-        js:   'public_html/assets/js/**/*.js',
-        img:  'public_html/assets/img/**/*.+(png|jpg|gif|svg)',
-        scss: 'public_html/assets/scss/**/*.scss',
+        root:       'public_html/assets',
+        html:       'public_html/**/*.html',
+        css:        'public_html/assets/css/*.css',
+        js:         'public_html/assets/js/*.js',
+        vendors:    'public_html/assets/vendors/**/*.*',
+        imgs:       'public_html/assets/img/**/*.+(png|jpg|gif|svg)',
+        scss:       'public_html/assets/scss/**/*.scss'
     },
     dist: {
-        css:  'public_html/dist/css',
-        js:   'public_html/dist/js',
-        img:  'public_html/dist/img'
+        root:       'public_html/dist',
+        css:        'public_html/dist/css',
+        js:         'public_html/dist/js',
+        imgs:       'public_html/dist/img',
+        vendors:    'public_html/dist/vendors'
     }
 }
 
@@ -36,22 +40,19 @@ var paths = {
 // Compile SCSS
 gulp.task('sass', function() {
     return gulp.src(paths.src.scss)
-
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(paths.src.css))
+    .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError)) 
+    .pipe(autoprefixer())
+    .pipe(gulp.dest(paths.src.root + '/css'))
     .pipe(browserSync.stream());
 });
 
 
-// Minify + AutoPreFixer + Combine CSS
+// Minify + Combine CSS
 gulp.task('css', function() {
-    return gulp.src(paths.src.css + '/*.css')
-    .pipe(autoprefixer({
-        browsers: ['last 10 versions'],
-        cascade: false
-    }))
+    return gulp.src(paths.src.css)
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(concat('app.css'))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(paths.dist.css))
 });
 
@@ -66,9 +67,9 @@ gulp.task('js', function() {
 });
 
 
-// Compress (JPEG, PNG, GIF, SVG)
+// Compress (JPEG, PNG, GIF, SVG, JPG)
 gulp.task('img', function(){
-    return gulp.src(paths.src.img)
+    return gulp.src(paths.src.imgs)
     .pipe(imageMin([
         imageMin.gifsicle(),
         imageMin.jpegtran(),
@@ -77,7 +78,21 @@ gulp.task('img', function(){
         pngQuint(),
         jpgRecompress()
     ]))
-    .pipe(gulp.dest(paths.dist.img));
+    .pipe(gulp.dest(paths.dist.imgs));
+});
+
+
+// copy vendors to dist
+gulp.task('vendors', function(){
+    return gulp.src(paths.src.vendors)
+    .pipe(gulp.dest(paths.dist.vendors))
+});
+
+
+// clean dist
+gulp.task('clean', function () {
+    return gulp.src(paths.dist.root)
+        .pipe(clean());
 });
 
 

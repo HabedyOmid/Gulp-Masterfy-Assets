@@ -1,6 +1,6 @@
 {
   "name": "Gulp-Masterfy-Assets",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A simple and powerful app to masterfy your web assets.",
   "main": "gulpfile.js",
   "author": "Omid Habedy",
@@ -9,15 +9,29 @@
     "start": "gulp watch"
   },
   "dependencies": {
-    "browser-sync": "^2.26.3",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-clean-css": "^4.0.0",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^5.0.3",
+    "gulp-imagemin": "^6.1.0",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "imagemin-jpeg-recompress": "^6.0.0",
-    "imagemin-pngquant": "^7.0.0"
-  }
+    "imagemin-pngquant": "^8.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "ie >= 9",
+    "edge >= 15",
+    "ie_mob >= 10",
+    "ff >= 45",
+    "chrome >= 45",
+    "safari >= 7",
+    "opera >= 23",
+    "ios >= 7",
+    "android >= 4"
+  ]
 }

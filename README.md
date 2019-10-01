@@ -2,6 +2,11 @@
 
 ![alt text](preview.png)
 ---
+### Requirements:
+You have to install the followings to your your machine to able to use this automation tool.
+- http://github.com - automatic! [GitHub](http://github.com)Dashes work just as well
+- And if you have sub points, put two spaces before the dash or 
+
 
 ### Installation
 | Command | Descriptions |

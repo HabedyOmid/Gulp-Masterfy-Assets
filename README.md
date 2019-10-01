@@ -3,7 +3,7 @@
 ![alt text](preview.png)
 ---
 ### Requirements:
-You have to install the followings to your your machine to able to use this automation tool.
+You have to install the following softwares on your machine to able to use this automation tool.
 - [node.js](https://nodejs.org/en/) is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 - [npm](https://www.npmjs.com/) is node.js package manager for installing open-source JavaScript apps.
 

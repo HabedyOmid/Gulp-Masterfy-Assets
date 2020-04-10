@@ -1,1 +1,1 @@
-console.log("gulp js and browserSync is working... :)");
+"use strict";var sayHello=function(l){console.log("Hello ".concat(l,"!"))};sayHello("Nerd");

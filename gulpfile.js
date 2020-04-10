@@ -70,6 +70,11 @@ gulp.task('css', () => {
 gulp.task('js', () => {
 	return gulp
 		.src(paths.src.js)
+		.pipe(
+			babel({
+				presets: ['@babel/preset-env'],
+			}),
+		)
 		.pipe(uglify())
 		.pipe(concat('app.js'))
 		.pipe(gulp.dest(paths.dist.js))
@@ -82,11 +87,22 @@ gulp.task('img', () => {
 		.src(paths.src.imgs)
 		.pipe(
 			imagemin([
-				imagemin.gifsicle({ interlaced: true }),
-				imagemin.mozjpeg({ quality: 75, progressive: true }),
-				imagemin.optipng({ optimizationLevel: 5 }),
+				imagemin.gifsicle({
+					interlaced: true
+				}),
+				imagemin.mozjpeg({
+					quality: 75,
+					progressive: true
+				}),
+				imagemin.optipng({
+					optimizationLevel: 5
+				}),
 				imagemin.svgo({
-					plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+					plugins: [{
+						removeViewBox: true
+					}, {
+						cleanupIDs: false
+					}],
 				}),
 			]),
 		)
@@ -99,7 +115,7 @@ gulp.task('vendors', () => {
 });
 
 // clean dist
-gulp.task('clean', function () {
+gulp.task('clean', function() {
 	return gulp.src(paths.dist.root).pipe(clean());
 });
 

@@ -1,1 +1,5 @@
-console.log('gulp js and browserSync is working... :)');
+const sayHello = (name) => {
+    console.log(`Hello ${ name }!`);
+}
+
+sayHello('Nerd');

@@ -10,6 +10,22 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+// Customs
+@import "abstracts/colors";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+@import "base/typography";
+@import "base/base";
+@import "base/animations";
+@import "base/utilities";
+
+@import "components/table";
+
+@import "layouts/section";
+
+@import "pages/home";
+
 // Bootstrap 4.3
 @import "vendors/bootstrap4.3/functions";
 @import "vendors/bootstrap4.3/variables";
@@ -48,19 +64,3 @@
 @import "vendors/bootstrap4.3/spinners";
 @import "vendors/bootstrap4.3/utilities";
 @import "vendors/bootstrap4.3/print";
-
-// Customs
-@import "abstracts/colors";
-@import "abstracts/variables";
-@import "abstracts/mixins";
-
-@import "base/typography";
-@import "base/base";
-@import "base/animations";
-@import "base/utilities";
-
-@import "components/table";
-
-@import "layouts/section";
-
-@import "pages/home";

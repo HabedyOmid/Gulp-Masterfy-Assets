@@ -1,0 +1,63 @@
+/*!
+=========================================================
+* Gulp-Masterfy-Assets- v1.1
+=========================================================
+
+* Licensed: (https://devcrud.com/licenses)
+* Coded by: DevCRUD
+
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
+
+// Overrides
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Custom Components
+@import 'base/base';
+@import 'base/animations';
+@import 'base/utilities';
+@import 'components/table';
+@import 'layouts/section';
+@import 'pages/home';
+
+// Bootstrap Core
+@import 'vendors/bootstrap4.3/functions';
+@import 'vendors/bootstrap4.3/variables';
+@import 'vendors/bootstrap4.3/mixins';
+@import 'vendors/bootstrap4.3/root';
+@import 'vendors/bootstrap4.3/reboot';
+@import 'vendors/bootstrap4.3/type';
+@import 'vendors/bootstrap4.3/images';
+@import 'vendors/bootstrap4.3/code';
+@import 'vendors/bootstrap4.3/grid';
+@import 'vendors/bootstrap4.3/tables';
+@import 'vendors/bootstrap4.3/forms';
+@import 'vendors/bootstrap4.3/buttons';
+@import 'vendors/bootstrap4.3/transitions';
+@import 'vendors/bootstrap4.3/dropdown';
+@import 'vendors/bootstrap4.3/button-group';
+@import 'vendors/bootstrap4.3/input-group';
+@import 'vendors/bootstrap4.3/custom-forms';
+@import 'vendors/bootstrap4.3/nav';
+@import 'vendors/bootstrap4.3/navbar';
+@import 'vendors/bootstrap4.3/card';
+@import 'vendors/bootstrap4.3/breadcrumb';
+@import 'vendors/bootstrap4.3/pagination';
+@import 'vendors/bootstrap4.3/badge';
+@import 'vendors/bootstrap4.3/jumbotron';
+@import 'vendors/bootstrap4.3/alert';
+@import 'vendors/bootstrap4.3/progress';
+@import 'vendors/bootstrap4.3/media';
+@import 'vendors/bootstrap4.3/list-group';
+@import 'vendors/bootstrap4.3/close';
+@import 'vendors/bootstrap4.3/toasts';
+@import 'vendors/bootstrap4.3/modal';
+@import 'vendors/bootstrap4.3/tooltip';
+@import 'vendors/bootstrap4.3/popover';
+@import 'vendors/bootstrap4.3/carousel';
+@import 'vendors/bootstrap4.3/spinners';
+@import 'vendors/bootstrap4.3/utilities';
+@import 'vendors/bootstrap4.3/print';

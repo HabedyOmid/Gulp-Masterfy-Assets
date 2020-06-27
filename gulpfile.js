@@ -82,7 +82,7 @@ gulp.task('js', () => {
 });
 
 // Compress (JPEG, PNG, GIF, SVG, JPG)
-gulp.task('img', () => {
+gulp.task('imgs', () => {
 	return gulp
 		.src(paths.src.imgs)
 		.pipe(
@@ -113,7 +113,7 @@ gulp.task('img', () => {
 });
 
 // copy vendors to dist
-gulp.task('vendor', () => {
+gulp.task('vendors', () => {
 	return gulp.src(paths.src.vendors).pipe(gulp.dest(paths.dist.vendors));
 });
 
@@ -123,7 +123,7 @@ gulp.task('clean', function () {
 });
 
 // Prepare all src for production
-gulp.task('build', gulp.series('sass', 'css', 'js', 'img', 'vendor'));
+gulp.task('build', gulp.series('sass', 'css', 'js', 'imgs', 'vendor'));
 
 // Watch (SASS, CSS, JS, and HTML) reload browser on change
 gulp.task('watch', () => {

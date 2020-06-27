@@ -19,7 +19,7 @@ After downloading this repo, open this project folder within your terminal and r
 | `gulp sass`    | Compiling all SASS files into CSS                                                      |
 | `gulp css`     | Minify + Combine + Adding Prefixes to CSS supporting major browsers                    |
 | `gulp js`      | Combine and minify JS files, Babel (ES5, ES6) support                                  |
-| `gulp img`     | Compress all PNG, JPG, GIF and SVG graphic files                                       |
+| `gulp imgs`    | Compress all PNG, JPG, GIF and SVG graphic files                                       |
 | `gulp clean`   | To clean your dist directory before any production build                               |
 | `gulp vendors` | To copy all vendors / plugins assets to dist directory                                 |
 | `gulp build`   | Build all the assets for production                                                    |

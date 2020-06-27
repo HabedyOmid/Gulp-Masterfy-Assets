@@ -22,6 +22,6 @@ After downloading this repo, open this project folder within your terminal and r
 | `gulp imgs`    | Compress all PNG, JPG, GIF and SVG graphic files                                       |
 | `gulp clean`   | To clean your dist directory before any production build                               |
 | `gulp vendors` | To copy all vendors / plugins assets to dist directory                                 |
-| `gulp build`   | Build all the assets for production                                                    |
+| `gulp build`   | Build dist folder from src for production                                              |
 | `gulp watch`   | Constantly watching and reloading browser on changes to (SASS, CSS, JS and HTML) files |
 | `npm start`    | Alternative command for `gulp watch` command                                           |

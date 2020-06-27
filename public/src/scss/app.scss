@@ -1,0 +1,26 @@
+/*!
+=========================================================
+* Gulp-Masterfy-Assets- v1.1
+=========================================================
+
+* Licensed: (https://devcrud.com/licenses)
+* Coded by: DevCRUD
+
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
+// Overrides
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Custom Components
+@import 'base/base';
+@import 'base/animations';
+@import 'base/utilities';
+@import 'components/table';
+@import 'layouts/section';
+@import 'pages/home';
+
+// bootstrap
+@import 'vendors/bootstrap-5/bootstrap';

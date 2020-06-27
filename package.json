@@ -11,10 +11,11 @@
 	"dependencies": {
 		"@babel/core": "^7.9.0",
 		"@babel/preset-env": "^7.9.0",
-		"gulp-babel": "^8.0.0",
+		"bootstrap": "^5.0.0-alpha1",
 		"browser-sync": "^2.26.7",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^7.0.0",
+		"gulp-babel": "^8.0.0",
 		"gulp-clean": "^0.4.0",
 		"gulp-clean-css": "^4.2.0",
 		"gulp-concat": "^2.6.1",

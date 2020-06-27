@@ -13,23 +13,23 @@ const clean = require('gulp-clean');
 
 // Paths
 var paths = {
-	root: {
+	public: {
 		www: 'public',
 	},
 	src: {
-		root: 'public/assets',
+		root: 'public/src',
 		html: 'public/**/*.html',
-		css: 'public/assets/css/*.css',
-		js: 'public/assets/js/*.js',
-		vendors: 'public/assets/vendors/**/*.*',
-		imgs: 'public/assets/img/**/*.+(png|jpg|gif|svg)',
-		scss: 'public/assets/scss/**/*.scss',
+		css: 'public/src/css/*.css',
+		js: 'public/src/js/*.js',
+		vendors: 'public/src/vendors/**/*.*',
+		imgs: 'public/src/imgs/**/*.+(png|jpg|gif|svg)',
+		scss: 'public/src/scss/**/*.scss',
 	},
 	dist: {
 		root: 'public/dist',
 		css: 'public/dist/css',
 		js: 'public/dist/js',
-		imgs: 'public/dist/img',
+		imgs: 'public/dist/imgs',
 		vendors: 'public/dist/vendors',
 	},
 };
@@ -44,8 +44,7 @@ gulp.task('sass', () => {
 			}).on('error', sass.logError),
 		)
 		.pipe(autoprefixer())
-		.pipe(gulp.dest(paths.src.root + '/css'))
-		.pipe(browserSync.stream());
+		.pipe(gulp.dest(paths.src.root + '/css'));
 });
 
 // Minify + Combine CSS
@@ -63,7 +62,8 @@ gulp.task('css', () => {
 				suffix: '.min',
 			}),
 		)
-		.pipe(gulp.dest(paths.dist.css));
+		.pipe(gulp.dest(paths.dist.css))
+		.pipe(browserSync.stream());
 });
 
 // Minify + Combine JS
@@ -88,21 +88,24 @@ gulp.task('img', () => {
 		.pipe(
 			imagemin([
 				imagemin.gifsicle({
-					interlaced: true
+					interlaced: true,
 				}),
 				imagemin.mozjpeg({
 					quality: 75,
-					progressive: true
+					progressive: true,
 				}),
 				imagemin.optipng({
-					optimizationLevel: 5
+					optimizationLevel: 5,
 				}),
 				imagemin.svgo({
-					plugins: [{
-						removeViewBox: true
-					}, {
-						cleanupIDs: false
-					}],
+					plugins: [
+						{
+							removeViewBox: true,
+						},
+						{
+							cleanupIDs: false,
+						},
+					],
 				}),
 			]),
 		)
@@ -110,28 +113,28 @@ gulp.task('img', () => {
 });
 
 // copy vendors to dist
-gulp.task('vendors', () => {
+gulp.task('vendor', () => {
 	return gulp.src(paths.src.vendors).pipe(gulp.dest(paths.dist.vendors));
 });
 
 // clean dist
-gulp.task('clean', function() {
+gulp.task('clean', function () {
 	return gulp.src(paths.dist.root).pipe(clean());
 });
 
-// Prepare all assets for production
-gulp.task('build', gulp.series('sass', 'css', 'js', 'img'));
+// Prepare all src for production
+gulp.task('build', gulp.series('sass', 'css', 'js', 'img', 'vendor'));
 
 // Watch (SASS, CSS, JS, and HTML) reload browser on change
 gulp.task('watch', () => {
 	browserSync.init({
 		server: {
-			baseDir: paths.root.www,
+			baseDir: paths.public.www,
 		},
 	});
 
 	gulp.watch(paths.src.scss, gulp.series('sass'));
-	gulp.watch(paths.src.css, gulp.series('sass'));
+	gulp.watch(paths.src.css, gulp.series('css'));
 	gulp.watch(paths.src.js, gulp.series('js'));
 	gulp.watch(paths.src.html).on('change', browserSync.reload);
 });

@@ -123,7 +123,7 @@ gulp.task('clean', function () {
 });
 
 // Prepare all src for production
-gulp.task('build', gulp.series('sass', 'css', 'js', 'imgs', 'vendor'));
+gulp.task('build', gulp.series('sass', 'css', 'js', 'imgs', 'vendors'));
 
 // Watch (SASS, CSS, JS, and HTML) reload browser on change
 gulp.task('watch', () => {

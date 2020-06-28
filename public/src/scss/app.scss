@@ -14,6 +14,48 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 
+// Bootstrap
+@import 'vendors/bootstrap-5/functions';
+@import 'vendors/bootstrap-5/variables';
+@import 'vendors/bootstrap-5/mixins';
+@import 'vendors/bootstrap-5/utilities';
+
+// Layout & components
+@import 'vendors/bootstrap-5/root';
+@import 'vendors/bootstrap-5/reboot';
+@import 'vendors/bootstrap-5/type';
+@import 'vendors/bootstrap-5/images';
+@import 'vendors/bootstrap-5/containers';
+@import 'vendors/bootstrap-5/grid';
+@import 'vendors/bootstrap-5/tables';
+@import 'vendors/bootstrap-5/forms';
+@import 'vendors/bootstrap-5/buttons';
+@import 'vendors/bootstrap-5/transitions';
+@import 'vendors/bootstrap-5/dropdown';
+@import 'vendors/bootstrap-5/button-group';
+@import 'vendors/bootstrap-5/nav';
+@import 'vendors/bootstrap-5/navbar';
+@import 'vendors/bootstrap-5/card';
+@import 'vendors/bootstrap-5/breadcrumb';
+@import 'vendors/bootstrap-5/pagination';
+@import 'vendors/bootstrap-5/badge';
+@import 'vendors/bootstrap-5/alert';
+@import 'vendors/bootstrap-5/progress';
+@import 'vendors/bootstrap-5/list-group';
+@import 'vendors/bootstrap-5/close';
+@import 'vendors/bootstrap-5/toasts';
+@import 'vendors/bootstrap-5/modal';
+@import 'vendors/bootstrap-5/tooltip';
+@import 'vendors/bootstrap-5/popover';
+@import 'vendors/bootstrap-5/carousel';
+@import 'vendors/bootstrap-5/spinners';
+
+// Helpers
+@import 'vendors/bootstrap-5/helpers';
+
+// Utilities
+@import 'vendors/bootstrap-5/utilities/api';
+
 // Custom Components
 @import 'base/base';
 @import 'base/animations';
@@ -21,6 +63,3 @@
 @import 'components/table';
 @import 'layouts/section';
 @import 'pages/home';
-
-// bootstrap
-@import 'vendors/bootstrap-5/bootstrap';

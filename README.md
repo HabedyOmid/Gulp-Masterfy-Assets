@@ -4,14 +4,15 @@
 
 ### Requirements:
 
-You have to install the following softwares on your machine to able to use this automation tool.
+You need to have `node.js`, `npm` and `gulp.js` installed globally on your system before using this tool and commands available for this automation.
 
 -   [node.js](https://nodejs.org/en/) is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 -   [npm](https://www.npmjs.com/) is node.js package manager for installing open-source JavaScript apps.
+-   [gulp.js](https://gulpjs.com/) A toolkit to automate & enhance your workflow
 
 ### Installation:
 
-After downloading this repo, open this project folder within your terminal and run `npm install` command to install all the dependencies and to unlock all other available tasks.
+After downloading this repo, open this project folder within your terminal and run `npm install` command to install all of the dependencies and to unlock all the below tasks.
 
 | Command        | Descriptions                                                                            |
 | -------------- | --------------------------------------------------------------------------------------- |

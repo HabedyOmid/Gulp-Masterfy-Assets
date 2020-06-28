@@ -18,7 +18,7 @@ After downloading this repo, open this project folder within your terminal and r
 | `npm install`  | Installing all dependencies for this application                                           |
 | `gulp sass`    | Compiling all SASS into CSS and adding browser support prefixes                            |
 | `gulp css`     | Compile, minify and combine CSS files into a single `.min.css` file                        |
-| `gulp js`      | Compile, minify and combined JS files to a single file. Babel (ES5, ES6) support enabled   |
+| `gulp js`      | Compile, minify and combine JS files to a single file. Babel (ES5, ES6) support enabled    |
 | `gulp imgs`    | Compress and optimize image _(.png, .jpg, .gif and .svg)_ graphic files                    |
 | `gulp vendors` | Copy all vendors / plugins lib files from src to dist directory                            |
 | `gulp clean`   | Delete dist directory, use `gulp build` for fresh rebuilt                                  |

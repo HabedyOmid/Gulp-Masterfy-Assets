@@ -19,9 +19,10 @@
 		"gulp-clean-css": "^4.3.0",
 		"gulp-concat": "^2.6.1",
 		"gulp-imagemin": "^7.1.0",
+		"gulp-purgecss": "^4.0.3",
+		"gulp-rename": "^2.0.0",
 		"gulp-sass": "^4.0.0",
 		"gulp-uglify": "^3.0.2",
-		"gulp-rename": "^2.0.0",
 		"sass": "^1.35.1"
 	},
 	"browserslist": [

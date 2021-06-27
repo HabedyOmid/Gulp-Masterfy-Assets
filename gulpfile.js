@@ -6,6 +6,7 @@ const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 const babel = require('gulp-babel');
 const cleanCSS = require('gulp-clean-css');
+const purgeCSS = require('gulp-purgecss');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
@@ -43,6 +44,9 @@ gulp.task('sass', () => {
 				outputStyle: 'expanded',
 			}).on('error', sass.logError),
 		)
+		.pipe(purgeCSS({
+			content: ['public/**/*.html']
+		}))
 		.pipe(autoprefixer())
 		.pipe(gulp.dest(paths.src.css))
 		.pipe(browserSync.stream());
@@ -135,7 +139,6 @@ gulp.task('watch', () => {
 	});
 
 	gulp.watch(paths.src.scss, gulp.series('sass'));
-	gulp.watch(paths.src.css, gulp.series('css'));
 	gulp.watch(paths.src.js, gulp.series('js'));
 	gulp.watch(paths.src.html).on('change', browserSync.reload);
 });

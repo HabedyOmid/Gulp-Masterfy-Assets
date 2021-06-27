@@ -11,8 +11,8 @@
 */
 
 // Overrides
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
+@import 'custom/abstracts/variables';
+@import 'custom/abstracts/mixins';
 
 // Bootstrap
 @import 'vendors/bootstrap-5/functions';
@@ -57,9 +57,9 @@
 @import 'vendors/bootstrap-5/utilities/api';
 
 // Custom Extra Styles Go Here
-@import 'base/base';
-@import 'base/animations';
-@import 'base/utilities';
-@import 'components/table';
-@import 'layouts/section';
-@import 'pages/home';
+@import 'custom/base/base';
+@import 'custom/base/animations';
+@import 'custom/base/utilities';
+@import 'custom/components/table';
+@import 'custom/layouts/section';
+@import 'custom/pages/home';

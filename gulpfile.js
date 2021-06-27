@@ -44,9 +44,7 @@ gulp.task('sass', () => {
 				outputStyle: 'expanded',
 			}).on('error', sass.logError),
 		)
-		.pipe(purgeCSS({
-			content: ['public/**/*.html']
-		}))
+		
 		.pipe(autoprefixer())
 		.pipe(gulp.dest(paths.src.css))
 		.pipe(browserSync.stream());
@@ -63,6 +61,9 @@ gulp.task('css', () => {
 			}),
 		)
 		.pipe(concat('app.css'))
+		.pipe(purgeCSS({
+			content: ['public/**/*.html']
+		}))
 		.pipe(
 			rename({
 				suffix: '.min',

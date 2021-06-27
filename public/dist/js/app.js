@@ -1,1 +1,0 @@
-"use strict";var sayHello=function(l){console.log("Hello ".concat(l,"!"))};sayHello("Nerd");

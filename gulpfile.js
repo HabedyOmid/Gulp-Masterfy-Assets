@@ -19,7 +19,7 @@ var paths = {
 	src: {
 		root: 'public/src',
 		html: 'public/**/*.html',
-		css: 'public/src/css/*.css',
+		css: 'public/src/css/',
 		js: 'public/src/js/*.js',
 		vendors: 'public/src/vendors/**/*.*',
 		imgs: 'public/src/imgs/**/*.+(png|jpg|gif|svg)',
@@ -44,13 +44,15 @@ gulp.task('sass', () => {
 			}).on('error', sass.logError),
 		)
 		.pipe(autoprefixer())
-		.pipe(gulp.dest(paths.src.root + '/css'));
+		.pipe(gulp.dest(paths.src.css))
+		.pipe(browserSync.stream());
 });
 
 // Minify + Combine CSS
 gulp.task('css', () => {
 	return gulp
-		.src(paths.src.css)
+		.src(paths.src.css + '*.css')
+		.pipe(concat('app.css'))
 		.pipe(
 			cleanCSS({
 				compatibility: 'ie8',
@@ -63,7 +65,6 @@ gulp.task('css', () => {
 			}),
 		)
 		.pipe(gulp.dest(paths.dist.css))
-		.pipe(browserSync.stream());
 });
 
 // Minify + Combine JS

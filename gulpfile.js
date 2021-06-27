@@ -44,7 +44,6 @@ gulp.task('sass', () => {
 				outputStyle: 'expanded',
 			}).on('error', sass.logError),
 		)
-		
 		.pipe(autoprefixer())
 		.pipe(gulp.dest(paths.src.css))
 		.pipe(browserSync.stream());
@@ -138,7 +137,6 @@ gulp.task('watch', () => {
 			baseDir: paths.public.www,
 		},
 	});
-
 	gulp.watch(paths.src.scss, gulp.series('sass'));
 	gulp.watch(paths.src.js, gulp.series('js'));
 	gulp.watch(paths.src.html).on('change', browserSync.reload);
